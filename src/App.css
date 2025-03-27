@@ -90,7 +90,7 @@ input {
   background: transparent;
   margin-top: 15px;
   color: hsl(252, 6%, 83%);
-  background: hsl(252, 6%, 83%, 0.1); /* Niebieski z 50% przezroczystości */
+  background: hsl(252, 6%, 83%, 0.1);
 }
 input[type="file"] {
   display: none;
@@ -135,6 +135,10 @@ button {
 .backButton {
   text-align: center;
 }
+.error {
+  color: hsl(7, 88%, 67%);
+}
+
 /* ticket style*/
 .ticket {
   position: relative;

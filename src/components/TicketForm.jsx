@@ -6,8 +6,35 @@ function TicketForm() {
   const [email, setEmail] = useState("");
   const [git, setGit] = useState("");
   const [file, setFile] = useState("");
+  const [errors, setErrors] = useState({});
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const validateForm = () => {
+    let newErrors = {};
+
+    if (!name.trim()) {
+      newErrors.name = "Full Name is required";
+    }
+    if (!email.trim()) {
+      newErrors.email = "E-mail Address is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Invalid email format";
+    }
+    if (!git.trim()) {
+      newErrors.git = "GitHub Username is required";
+    } else if (!/^@.+/.test(git)) {
+      newErrors.git = "Invalid GitHub username format";
+    }
+    if (!file) {
+      newErrors.file = "Please upload an avatar";
+    } else if (!file.type.startsWith("image/")) {
+      newErrors.file = "File must be an image (JPG or PNG)";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   if (isSubmitted) {
     return (
@@ -33,13 +60,24 @@ function TicketForm() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setIsSubmitted(true);
+          if (validateForm()) {
+            setIsSubmitted(true);
+          }
         }}
       >
         <label>Upload Avatar</label>
         <label htmlFor="file-upload" className="custom-file-upload">
-          <img src="/assets/images/icon-upload.svg" alt="Upload" />
-          Drag and drop or click to upload
+          <img
+            src={
+              file
+                ? "/assets/images/icon-done.svg"
+                : "/assets/images/icon-upload.svg"
+            }
+            alt="Upload"
+          />
+          {file
+            ? "Image attached correctly"
+            : "Drag and drop or click to upload"}
         </label>
         <input
           type="file"
@@ -49,8 +87,12 @@ function TicketForm() {
             setFile(e.target.files[0]);
           }}
         />
+        {errors.file ? (
+          <p className="error">{errors.file}</p>
+        ) : (
+          <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+        )}
 
-        <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
         <label htmlFor="name">Full Name</label>
         <input
           type="text"
@@ -60,6 +102,8 @@ function TicketForm() {
             setName(e.target.value);
           }}
         />
+        {errors.name && <p className="error">{errors.name}</p>}
+
         <label htmlFor="email">E-mail Address</label>
         <input
           type="email"
@@ -70,6 +114,8 @@ function TicketForm() {
             setEmail(e.target.value);
           }}
         />
+        {errors.email && <p className="error">{errors.email}</p>}
+
         <label htmlFor="github">GitHub Username</label>
         <input
           type="text"
@@ -80,6 +126,8 @@ function TicketForm() {
             setGit(e.target.value);
           }}
         />
+        {errors.git && <p className="error">{errors.git}</p>}
+
         <button className="backButton">Generate My Ticket</button>
       </form>
     </section>
