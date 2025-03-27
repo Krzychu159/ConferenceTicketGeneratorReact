@@ -5,7 +5,7 @@
   font-family: "Inconsolata", monospace;
 }
 body {
-  background-image: url("public/assets/images/background-desktop.png");
+  background-image: url("https://conference-ticket-generator-react-one.vercel.app/assets/images/background-desktop.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
