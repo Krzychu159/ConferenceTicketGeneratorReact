@@ -45,12 +45,14 @@ function ReadyTicket({ name, email, git, file, onBack }) {
                 <div class="fullname">{name}</div>
                 <div class="git">
                   <img src="assets/images/icon-github.svg" alt="git" />
-                  <div>@{git}</div>
+                  <div>{git}</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="numberTicket">#6521</div>
+          <div class="numberTicket">
+            <div className="rotate">#6521</div>
+          </div>
         </div>
       </section>
       <div className="backButton">
