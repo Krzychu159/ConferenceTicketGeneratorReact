@@ -1,12 +1,25 @@
-# React + Vite
+# Conference Ticket Generator React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based ticket generator built as part of the [Frontend Mentor challenge](https://www.frontendmentor.io/solutions/conference-ticket-generator-react-8rNjMS9bGl).  
+This app allows users to design and generate a conference ticket with custom details.
 
-Currently, two official plugins are available:
+🔗 **[Live Demo](https://conference-ticket-generator-react-one.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Built with React (functional components & hooks)  
+- Form to input ticket data (e.g. name, ticket type, date etc.)  
+- Real-time preview of the ticket design as you fill the form  
+- Responsive layout for different screen sizes  
+- Light / dark theme support (if implemented)  
+- Input validation / user friendly UX during data entry  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- React (using Vite or Create React App)  
+- CSS / styled-components / CSS modules (depending on your setup)  
+- State management with React hooks  
+- Possibly local state, form state handling  
+
+---
+
